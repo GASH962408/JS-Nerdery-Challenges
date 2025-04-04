@@ -21,6 +21,10 @@ Invoking "readableTime(3690)" should return "01:01:30" (HH:MM:SS)
 
 const readableTime = (seconds) => {
   // YOUR CODE HERE...
+  if (typeof seconds !== 'number' || seconds <= 0) {
+    return 'Invalid provide a positive number.';
+  }
+
   const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
   const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
   const secondsr = String(seconds % 60).padStart(2, '0');
@@ -59,6 +63,10 @@ const COUNTRY_NAMES = ["Germany", "Norway", "Island", "Japan", "Israel"];
 
 const circularArray = (index) => {
   // YOUR CODE HERE...
+  if (typeof index !== 'number') {
+    return 'Invalid please enter a number';
+  }
+
   const validIndex = index % COUNTRY_NAMES.length;
   return [...COUNTRY_NAMES.slice(validIndex), ...COUNTRY_NAMES.slice(0, validIndex)];
 };
@@ -98,13 +106,18 @@ The last 3 digits for the sum of powers from 1 to 10 is "317"
 
 const ownPower = (number, lastDigits) => {
       // YOUR CODE HERE...
+      if (typeof number !== 'number' || typeof lastDigits !== 'number') {
+        return 'Please enter a number';
+      }
+
       let sum = 0n; 
       for (let i = 1; i <= number; i++) {
         sum += BigInt(i) ** BigInt(i); 
       }
     
-      const mod = 10n ** BigInt(lastDigits); 
-      return (sum % mod).toString().padStart(lastDigits, '0'); 
+      const sumStr = sum.toString();
+      const result = sumStr.slice(-lastDigits);
+      return result.padStart(lastDigits, '0');
     };
     
     
@@ -139,6 +152,10 @@ Since 10! === 3628800 and you sum 3 + 6 + 2 + 8 + 8 + 0 + 0
 
 const digitSum = (n) => {
   // YOUR CODE HERE...
+  if (typeof n !== 'number') {
+    return 'Please only numbers are valid';
+  }
+
   let factorial = 1n;
   for (let i = 2n; i <= BigInt(n); i++) {
     factorial *= i;
@@ -180,6 +197,10 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 
 const fibIndex = (n) => {
     // YOUR CODE HERE...
+    if (typeof n !== 'number' || n<0 ) {
+      return 'Please only positive numbers are valid';
+    }
+
     let prev = 1n, curr = 1n, index = 2;
     while (curr.toString().length < n) {
       [prev, curr] = [curr, prev + curr];
