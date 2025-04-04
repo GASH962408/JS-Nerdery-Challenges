@@ -146,7 +146,7 @@ Since 10! === 3628800 and you sum 3 + 6 + 2 + 8 + 8 + 0 + 0
 /** 
  * Challenge 4 Documentation
  * @param {number} n - The number whose factorial's digits will be summed.
- * @returns {number} The sum of the digits of the factorial.
+ * @returns {number} - The sum of the digits of the factorial.
 */
 
 
@@ -191,9 +191,8 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 /** 
 * Challenge 5 Documentation
 * @param {number} n - The minimum number of digits the Fibonacci number should have.
-* @returns {number} The index in the Fibonacci sequence with the "n" digits.
+* @returns {number} - The index in the Fibonacci sequence with the "n" digits.
 */
-
 
 const fibIndex = (n) => {
     // YOUR CODE HERE...
@@ -209,7 +208,6 @@ const fibIndex = (n) => {
     return index;
   };
   
-
 fibIndex(3);
 fibIndex(5);
 fibIndex(12);
