@@ -114,8 +114,8 @@ const ownPower = (number, lastDigits) => {
       for (let i = 1; i <= number; i++) {
         sum += BigInt(i) ** BigInt(i); 
       }
-      return result = (sum).toString().slice(-lastDigits);
 
+      return sum.toString().slice(-lastDigits);
     };
     
     
