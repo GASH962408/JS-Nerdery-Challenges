@@ -110,18 +110,15 @@ const ownPower = (number, lastDigits) => {
         return 'Please enter a number';
       }
 
-      let sum = 0n; 
+      let sum = BigInt(0); 
       for (let i = 1; i <= number; i++) {
         sum += BigInt(i) ** BigInt(i); 
       }
-    
-      const sumStr = sum.toString();
-      const result = sumStr.slice(-lastDigits);
-      return result;
+      return result = (sum).toString().slice(-lastDigits);
+
     };
     
     
-  
 ownPower(10, 3);
 ownPower(12, 7);
 ownPower(21, 12);
@@ -156,13 +153,11 @@ const digitSum = (n) => {
     return 'Please only numbers are valid';
   }
 
-  let factorial = 1n;
-  for (let i = 2n; i <= BigInt(n); i++) {
+  let factorial = BigInt(1);
+  for (let i = BigInt(2); i <= BigInt(n); i++) {
     factorial *= i;
   }
-  return factorial
-    .toString()
-    .split('')
+  return factorial.toString().split('')
     .reduce((sum, digit) => sum + Number(digit), 0);
 };
 
@@ -196,11 +191,10 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 
 const fibIndex = (n) => {
     // YOUR CODE HERE...
-    if (typeof n !== 'number' || n<0 ) {
+    if (typeof n !== 'number'|| n < 0) {
       return 'Please only positive numbers are valid';
     }
-
-    let prev = 1n, curr = 1n, index = 2;
+    let prev = 1, curr = 1, index = 2;
     while (curr.toString().length < n) {
       [prev, curr] = [curr, prev + curr];
       index++;
